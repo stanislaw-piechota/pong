@@ -11,3 +11,6 @@ You can see it in some files, because there is some codes in comment blocks.
 
 If you can help me fixing this I would be happy.
 Thank you from the mountain! :) 
+
+And maybe if you know how to convert it .exe file add text file to repozitory with description.
+Thank you a lot!
