@@ -87,23 +87,24 @@ def update_screen(settings, screen, pad, pad1, ball, stats, start_button, sb,
         stats.game_active = False
 
     pygame.display.flip()
-    """ if (stats.a_hm + stats.b_hm) == 0:
-        sleep(0.00001)
-    else:
-        sleep(0.00001 / ((stats.a_hm + stats.b_hm)*4))"""
+
+def make_speed(stats):
+    #changing speed of ball
+    stats.update_accel()
+    sleep(0.005 / stats.accel)
 
 def make_x():
     #setting direction of ball's x
     dirx = 0
     while dirx == 0:
-        dirx = randint(-1, 1)
+        dirx = randint(-3, 3)
     return dirx
 
 def make_y():
     #setting direction of ball's y
     diry = 0
     while diry == 0:
-        diry = randint(-1, 1)
+        diry = randint(-3, 3)
     return diry
 
 def update_ball(ball, settings, pad, pad1, stats, sb, sb1 ):

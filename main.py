@@ -1,4 +1,4 @@
-#version: 2.0.1
+#version: 2.2.1
 #game's code is compatibile with PEP8 requirements
 
 #importing all objects and libraries
@@ -37,9 +37,10 @@ def run_game():
             pad.update(settings)
             pad1.update(settings)
             gf.update_ball(ball, settings, pad, pad1, stats, sb, sb1)
-        gf.check_events(settings, screen, pad, pad1, stats, start_button)
         gf.update_screen(settings, screen, pad, pad1, ball, stats,
                          start_button, sb, sb1)
-
+        gf.check_events(settings, screen, pad, pad1, stats, start_button)
+        gf.make_speed(stats)
+        
 #starting game
 run_game()
