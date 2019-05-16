@@ -8,7 +8,6 @@ class Game_stats():
         self.a_hm = 0
         self.b_win = False
         self.b_hm = 0
-        self.accel = 0
 
         #reseting after starting program
         self.reset_stats()
@@ -17,10 +16,4 @@ class Game_stats():
         #function for reseting
         self.a_hm = 0
         self.b_hm = 0
-        self.accel = 0
 
-    def update_accel(self):
-        if self.a_hm + self.b_hm == 0:
-            self.accel = 1
-        else:
-            self.accel = (self.a_hm + self.b_hm) * 2

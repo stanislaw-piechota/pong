@@ -88,26 +88,21 @@ def update_screen(settings, screen, pad, pad1, ball, stats, start_button, sb,
 
     pygame.display.flip()
 
-def make_speed(stats):
-    #changing speed of ball
-    stats.update_accel()
-    sleep(0.005 / stats.accel)
-
 def make_x():
     #setting direction of ball's x
     dirx = 0
     while dirx == 0:
-        dirx = randint(-3, 3)
+        dirx = randint(-1, 1)
     return dirx
 
 def make_y():
     #setting direction of ball's y
     diry = 0
     while diry == 0:
-        diry = randint(-3, 3)
+        diry = randint(-1, 1)
     return diry
 
-def update_ball(ball, settings, pad, pad1, stats, sb, sb1 ):
+def update_ball(ball, settings, pad, pad1, stats, sb, sb1):
     #updating ball's position on the screen
     ball.rect.centerx += settings.dirx
     ball.rect.centery += settings.diry
@@ -133,8 +128,8 @@ def check_collisions(ball, settings, pad, pad1, stats, sb, sb1):
 def reset_game(ball, pad, pad1, stats, sb, sb1):
     #setting default position
     ball.rect.center = ball.screen_rect.center
-    pad.rect.center = 10, 350
-    pad1.rect.center = 1190, 350
+    pad.rect.center = 50, 350
+    pad1.rect.center = 1150, 350
     update_score(stats, sb, sb1)
     sleep(3)
     stats.a_win = False

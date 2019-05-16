@@ -33,14 +33,13 @@ def run_game():
 
     while True:
         #using functions from module
+        gf.check_events(settings, screen, pad, pad1, stats, start_button)
+        gf.update_screen(settings, screen, pad, pad1, ball, stats,
+                         start_button, sb, sb1)
         if stats.game_active:
             pad.update(settings)
             pad1.update(settings)
             gf.update_ball(ball, settings, pad, pad1, stats, sb, sb1)
-        gf.update_screen(settings, screen, pad, pad1, ball, stats,
-                         start_button, sb, sb1)
-        gf.check_events(settings, screen, pad, pad1, stats, start_button)
-        gf.make_speed(stats)
         
 #starting game
 run_game()

@@ -8,7 +8,7 @@ class Pad():
         self.screen = screen
 
         self.rect = pygame.Rect(0, 0, settings.pad_width, settings.pad_height)
-        self.rect.centerx = 10
+        self.rect.centerx = 50
         self.rect.centery = 350
 
         self.y = float(self.rect.y)
