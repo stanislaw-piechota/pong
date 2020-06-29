@@ -13,6 +13,7 @@ from game_stats import Game_stats
 from button import Button
 from scoreboard import Scoreboard
 from scoreboard1 import Scoreboard1
+from time import sleep
 
 def run_game():
     """main loop of the game"""
@@ -25,7 +26,7 @@ def run_game():
     ball = Ball(screen)
     pad = Pad(settings, screen)
     pad1 = Pad1(settings, screen)
-    stats = Game_stats()
+    stats = Game_stats(settings)
     pygame.display.set_caption("Pong")
     sb = Scoreboard(screen, stats)
     sb1 = Scoreboard1(screen, stats)
@@ -40,6 +41,6 @@ def run_game():
             pad.update(settings)
             pad1.update(settings)
             gf.update_ball(ball, settings, pad, pad1, stats, sb, sb1)
-        
+
 #starting game
 run_game()

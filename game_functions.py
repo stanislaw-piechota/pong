@@ -3,6 +3,7 @@ import sys
 from random import randint
 from time import sleep
 from button1 import Button1
+from pad import Pad
 
 def check_events(settings, screen, pad, pad1, stats, start_button):
     #reacting for clicking
@@ -62,7 +63,7 @@ def update_screen(settings, screen, pad, pad1, ball, stats, start_button, sb,
         end_button = Button1(screen, settings, stats)
         end_button.draw_button()
         pygame.display.flip()
-        stats.reset_stats()
+        stats.reset_stats(settings)
         sb.prep_score()
         sb.show_score()
         sb1.prep_score()
@@ -77,7 +78,7 @@ def update_screen(settings, screen, pad, pad1, ball, stats, start_button, sb,
         end_button = Button1(screen, settings, stats)
         end_button.draw_button()
         pygame.display.flip()
-        stats.reset_stats()
+        stats.reset_stats(settings)
         sb.prep_score()
         sb1.show_score()
         sb1.prep_score()
@@ -88,19 +89,40 @@ def update_screen(settings, screen, pad, pad1, ball, stats, start_button, sb,
 
     pygame.display.flip()
 
+def make_table():
+    table=[]
+    j = float(1)
+    for i in range(0, 100, 1):
+        table.append(j/100)
+        j+=1
+    return table
+
 def make_x():
     #setting direction of ball's x
     dirx = 0
     while dirx == 0:
         dirx = randint(-1, 1)
+    """rnd = randint(1, 2)
+    if rnd == 1:
+        dirx = 1
+    else:
+        dirx = -1"""
     return dirx
 
 def make_y():
     #setting direction of ball's y
     diry = 0
+    """table = make_table()
+    rnd = randint(1, 2)
+    if rnd == 1:
+        rnd = randint(0, 99)
+        diry = table[rnd]
+    else:
+        rnd = -1 * randint(0, 99)
+        diry = table[rnd]"""
     while diry == 0:
         diry = randint(-1, 1)
-    return diry
+    return float(diry)
 
 def update_ball(ball, settings, pad, pad1, stats, sb, sb1):
     #updating ball's position on the screen
@@ -112,9 +134,9 @@ def check_collisions(ball, settings, pad, pad1, stats, sb, sb1):
     #checking if ball is in collision with sth
     if ball.rect.top <= 0 or ball.rect.bottom >= 700:
         settings.diry = -1 * settings.diry
-    elif pad.rect.collidepoint(ball.rect.x, ball.rect.y):
+    elif pad.rect.colliderect(ball):
         settings.dirx = -1 * settings.dirx
-    elif pad1.rect.collidepoint(ball.rect.x, ball.rect.y):
+    elif pad1.rect.colliderect(ball):
         settings.dirx = -1 * settings.dirx
     elif ball.rect.right >= 1200:
         stats.a_win = True

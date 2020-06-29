@@ -1,5 +1,4 @@
 import game_functions as gf
-from random import randint
 
 class Settings():
     """class of parameters of some objects"""
@@ -13,11 +12,11 @@ class Settings():
         self.bg_color = (0, 170, 0)
 
         #pad settings
-        self.pad_speed_factor = 3
+        self.pad_speed_factor = 1.75
         self.pad_width = 20
-        self.pad_height = 80
+        self.pad_height = 90
         self.pad_color = 250, 250, 250
 
         #ball settings
-        self.dirx = gf.make_x()
+        self.dirx = gf.make_x() 
         self.diry = gf.make_y()

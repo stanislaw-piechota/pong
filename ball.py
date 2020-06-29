@@ -16,10 +16,6 @@ class Ball():
         self.rect.centerx = 600
         self.rect.centery = 350
 
-        #position is float number
-        self.rect.y = float(self.rect.y)
-        self.rect.x = float(self.rect.x)
-
     def blitme(self):
         #making ball visible
         self.screen.blit(self.image, self.rect)
